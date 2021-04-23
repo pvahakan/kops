@@ -1,0 +1,9 @@
+Tehdään speed-tester -tyyppinen peli
+
+Vaatimukset:
+  - Erivärisiä kirjaimilla koodattuja pallukoita
+  - Yksi pallukka valitaan satunnaisesti
+  - Pitää painaa pallukkaa vastaavaa kirjainta näppäimistöltä
+  - Pallukan valintanopeus kasvaa kun peli etenee
+  - Peli loppuu, kun painaa väärin
+  - Pistelasku
