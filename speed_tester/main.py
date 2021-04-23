@@ -36,13 +36,10 @@ def update_time(x):
     if x > 1:
         return x - 0.1 * x
     elif x <= 0.4:
-        print('kolmas elif')
         return 0.4
     elif x < 0.6:
-        print('toinen elif')
         return x - 0.005 * x
     elif x <= 1:
-        print('eka elif')
         return x - 0.03 * x
 
 def cli_print():
@@ -62,25 +59,13 @@ def draw_game(letter):
     w_h, w_j, w_k, w_l = 5, 5, 5, 5
 
     if letter == 'h':
-        w_h = 0
-        w_j = 5
-        w_k = 5
-        w_l = 5
+        w_h, w_j, w_k, w_l = 0, 5, 5, 5
     elif letter == 'j':
-        w_h = 5
-        w_j = 0
-        w_k = 5
-        w_l = 5
+        w_h, w_j, w_k, w_l = 5, 0, 5, 5
     elif letter == 'k':
-        w_h = 5
-        w_j = 5
-        w_k = 0
-        w_l = 5
+        w_h, w_j, w_k, w_l = 5, 5, 0, 5
     elif letter == 'l':
-        w_h = 5
-        w_j = 5
-        w_k = 5
-        w_l = 0
+        w_h, w_j, w_k, w_l = 5, 5, 5, 0
 
     pygame.draw.circle(win, RED, (100, 200), r, width=w_h)
     win.blit(h_img, (100-37, 200-37))
@@ -139,12 +124,8 @@ if __name__ == "__main__":
 
         correct_keys.append(l)
 
-        # print('pressed:', pressed_keys)
-        # print('correct:', right_keys)
         if correct_keys != pressed_keys:
             print('Game over')
-            print('You pressed: ', pressed_keys[-1])
-            print('Correct key: ', correct_keys[-1])
             print('Your score: ', score)
             running = False
             break
