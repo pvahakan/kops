@@ -102,18 +102,46 @@ def draw_empty_circles():
 
 if __name__ == "__main__":
     t = 1.3
+    pressed_keys = []
+    correct_keys = []
+    score = 0
     while running:
         l = random_letter()
         t = update_time(t)
-
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
 
         draw_game(l)
         pygame.time.delay(round(t*1000))
 
         draw_empty_circles()
-        pygame.time.delay(100)
+        pygame.time.delay(200)
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+                break
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_h:
+                    pressed_keys.append('h')
+                elif event.key == pygame.K_j:
+                    pressed_keys.append('j')
+                elif event.key == pygame.K_k:
+                    pressed_keys.append('k')
+                elif event.key == pygame.K_l:
+                    pressed_keys.append('l')
+
+
+        correct_keys.append(l)
+
+        # print('pressed:', pressed_keys)
+        # print('correct:', right_keys)
+        if correct_keys != pressed_keys:
+            print('Game over')
+            print('You pressed: ', pressed_keys[-1])
+            print('Correct key: ', correct_keys[-1])
+            print('Your score: ', score)
+            running = False
+            break
+        else:
+            score += 1
 
 pygame.quit()
