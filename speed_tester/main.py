@@ -33,10 +33,17 @@ def random_letter():
     return letters[i]
 
 def update_time(x):
-    if x > 0.35:
+    if x > 1:
         return x - 0.1 * x
-    else:
+    elif x <= 0.4:
+        print('kolmas elif')
         return 0.4
+    elif x < 0.6:
+        print('toinen elif')
+        return x - 0.005 * x
+    elif x <= 1:
+        print('eka elif')
+        return x - 0.03 * x
 
 def cli_print():
     os.system('clear')
