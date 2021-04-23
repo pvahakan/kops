@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import time
 import os
 import pygame
 import random
@@ -52,9 +51,10 @@ def cli_print():
             print(l, end='\t')
     print()
 
-def draw_game(letter):
+def draw_game(letter, score):
 
     win.fill(BLACK)
+    score_img = font.render(str(score), True, WHITE)
 
     w_h, w_j, w_k, w_l = 5, 5, 5, 5
 
@@ -67,28 +67,30 @@ def draw_game(letter):
     elif letter == 'l':
         w_h, w_j, w_k, w_l = 5, 5, 5, 0
 
-    pygame.draw.circle(win, RED, (100, 200), r, width=w_h)
-    win.blit(h_img, (100-37, 200-37))
-    pygame.draw.circle(win, YELLOW, (300, 200), r, width=w_j)
-    win.blit(j_img, (300-37, 200-37))
-    pygame.draw.circle(win, GREEN, (500, 200), r, width=w_k)
-    win.blit(k_img, (500-37, 200-37))
-    pygame.draw.circle(win, BLUE, (700, 200), r, width=w_l)
-    win.blit(l_img, (700-37, 200-37))
+    pygame.draw.circle(win, RED, (100, 300), r, width=w_h)
+    win.blit(h_img, (100-37, 300-37))
+    pygame.draw.circle(win, YELLOW, (300, 300), r, width=w_j)
+    win.blit(j_img, (300-37, 300-37))
+    pygame.draw.circle(win, GREEN, (500, 300), r, width=w_k)
+    win.blit(k_img, (500-37, 300-37))
+    pygame.draw.circle(win, BLUE, (700, 300), r, width=w_l)
+    win.blit(l_img, (700-37, 300-37))
+
+    win.blit(score_img, (370, 60))
 
     pygame.display.update()
 
 def draw_empty_circles():
     w = 5
     win.fill(BLACK)
-    pygame.draw.circle(win, RED, (100, 200), r, width=w)
-    win.blit(h_img, (100-37, 200-37))
-    pygame.draw.circle(win, YELLOW, (300, 200), r, width=w)
-    win.blit(j_img, (300-37, 200-37))
-    pygame.draw.circle(win, GREEN, (500, 200), r, width=w)
-    win.blit(k_img, (500-37, 200-37))
-    pygame.draw.circle(win, BLUE, (700, 200), r, width=w)
-    win.blit(l_img, (700-37, 200-37))
+    pygame.draw.circle(win, RED, (100, 300), r, width=w)
+    win.blit(h_img, (100-37, 300-37))
+    pygame.draw.circle(win, YELLOW, (300, 300), r, width=w)
+    win.blit(j_img, (300-37, 300-37))
+    pygame.draw.circle(win, GREEN, (500, 300), r, width=w)
+    win.blit(k_img, (500-37, 300-37))
+    pygame.draw.circle(win, BLUE, (700, 300), r, width=w)
+    win.blit(l_img, (700-37, 300-37))
 
     pygame.display.update()
 
@@ -101,7 +103,7 @@ if __name__ == "__main__":
         l = random_letter()
         t = update_time(t)
 
-        draw_game(l)
+        draw_game(l, score)
         pygame.time.delay(round(t*1000))
 
         draw_empty_circles()
