@@ -22,7 +22,7 @@ def correct_letters(typed, correct):
     score = 0
     try:
         for i in range(len(correct)):
-            if typed[i] == correct[i]:
+            if typed[i].lower() == correct[i].lower():
                 score += 1
     except IndexError:
         pass
@@ -75,23 +75,8 @@ def cli():
 
 
 if __name__ == '__main__':
-    # print(correct_letters('mi', 'moi'))
-    # print(correct_letters('moi', 'moi'))
-    # print(correct_letters('mooi', 'moi'))
-    # print(correct_letters('iom', 'moi'))
-    start()
-    # while True:
-    #     try:
-    #         choise = cli()
-    #         if choise == '1':
-    #             print_info()
-    #         elif choise == '2':
-    #             start()
-    #         elif choise == '3':
-    #             show_statistic()
-    #         elif choise == '4':
-    #             if input('Haluatko varmasti lopettaa (k/e): ') == 'k':
-    #                 break
-    #     except (KeyboardInterrupt, EOFError):
-    #         print()
-    #         break
+    print(correct_letters('Mi', 'moi'))
+    print(correct_letters('MOI', 'moi'))
+    print(correct_letters('mOoi', 'moi'))
+    print(correct_letters('iom', 'moi'))
+    # start()
