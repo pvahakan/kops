@@ -29,6 +29,13 @@ def correct_letters(typed, correct):
 
     return score
 
+def calculate_wpm(score, time):
+    time /= 60 # seconds to minutes
+    cpm = round(score / time)
+    wpm = round((score / 5) / time)
+    print('CPM', cpm)
+    print('WPM', wpm)
+
 def print_info():
     print('Testissä valitaan ensin testin kesto sekunteina.')
     print('Viimeisen sanan saa kirjoittaa loppuun.')
@@ -61,6 +68,7 @@ def start():
     print(wrote)
     print('Kokonaisaika: {:.2f} s'.format(end_time - start_time))
     print('Pisteet:', score)
+    calculate_wpm(score, end_time - start_time)
 
 def show_statistic():
     pass
@@ -75,8 +83,8 @@ def cli():
 
 
 if __name__ == '__main__':
-    print(correct_letters('Mi', 'moi'))
-    print(correct_letters('MOI', 'moi'))
-    print(correct_letters('mOoi', 'moi'))
-    print(correct_letters('iom', 'moi'))
-    # start()
+    # print(correct_letters('Mi', 'moi'))
+    # print(correct_letters('MOI', 'moi'))
+    # print(correct_letters('mOoi', 'moi'))
+    # print(correct_letters('iom', 'moi'))
+    start()
