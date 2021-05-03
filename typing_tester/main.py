@@ -79,4 +79,5 @@ if __name__ == '__main__':
     print(correct_letters('MOI', 'moi'))
     print(correct_letters('mOoi', 'moi'))
     print(correct_letters('iom', 'moi'))
+    print(correct_letters('12ll12', 'moi'))
     # start()
