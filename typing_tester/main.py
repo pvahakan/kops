@@ -34,9 +34,17 @@ def print_info():
     print('Viimeisen sanan saa kirjoittaa loppuun.')
     print('WPM lasketaan todellisen ajan mukaan (joka on yleensä pitempi kuin kesto koska viimeinen sana).')
 
+def print_word(word):
+    print()
+    print('\t', word)
+    print()
+
+def ask_user_input():
+    return input('>>> ')
+
 def start():
     print('Valitse kesto (sec)')
-    test_time = 5 # int(input('>>> '))
+    test_time = 5 # int(ask_user_input())
     t_end = time.time() + test_time
     score = 0
     start_time = time.time()
@@ -44,10 +52,8 @@ def start():
     while t_end > time.time():
         words = get_list_of_words('./sanalista.txt')
         random_word = get_random_word(words)
-        print()
-        print('\t', random_word)
-        print()
-        user_input = input('>>> ')
+        print_word(random_word)
+        user_input = ask_user_input()
         end_time = time.time()
         wrote.append(user_input)
         score += correct_letters(user_input, random_word)
